@@ -6,10 +6,10 @@
 Этот репозиторий содержит документацию для [TelegramBots](https://github.com/TelegramBots) проекта.
 Эта книга - большой учебник к созданию Telegram ботов в экосистеме .NET 🤖.
 
-## 🔨 Build & Test ✔
+## 🔨 Сборка & тестирование ✔
 
-This book is a web app generated from markdown files with [mdBook].
-Each markdown file mentioned in [SUMMARY](src/SUMMARY.md) will be rendered as an HTML page.
+Эта книга является web приложением, сгенерированным из файлов markdown с использованием [mdBook].
+Все markdown файлы, упомянутые в [SUMMARY](src/SUMMARY.md) буту отображаться как HTML страницы.
 
 1. Install [mdBook]:
     - You can download a [mdBook binary]
