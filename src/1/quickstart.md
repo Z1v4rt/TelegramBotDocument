@@ -7,7 +7,7 @@
 
 [![Bot Father](docs/logo-bot-father.jpg)](https://t.me/botfather)
 
-Bot token is a key that required to authorize the bot and send requests to the Bot API. <u>**Keep your token secure and store it safely**</u>, it can be used to control your bot. It should look like this:
+Bot token это обязательный ключ для бота, который позволяет отправлять и получать реквесты (requests) от Bot API. <u>**Сохраните свой токен в безопасном месте и храните от посторонных глаз**</u>, он позволяет контролировать и управлять ботом. Он выглядит примерно следующим образом:
 
 ```text
 1234567:4TT8bAc8GHUspu3ERYn-KGcvsvGB9u_n4ddy
