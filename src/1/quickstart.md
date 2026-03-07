@@ -3,7 +3,7 @@
 ## Bot Father
 
 Прежде, чем начать, нужно обратиться к [@BotFather] в Telegram.
-[Create a new bot](https://core.telegram.org/bots/tutorial#obtain-your-bot-token), acquire the bot token and get back here.
+Нажать [Create a new bot](https://core.telegram.org/bots/tutorial#obtain-your-bot-token), чтобы получить новый токен бота (по сути создать новый бот) и вернуться к документации.
 
 [![Bot Father](docs/logo-bot-father.jpg)](https://t.me/botfather)
 
