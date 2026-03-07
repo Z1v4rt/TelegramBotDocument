@@ -21,16 +21,16 @@ Bot token это обязательный ключ для бота, которы
 > Рекомендуется использовать последнюю версию .NET, например .NET 8, но также поддерживаются старые версии .NET Framework (4.6.1+), .NET Core (2.0+) or .NET (5.0+)
 
 Для начала создадим консольный проект.
-Создаем новый консольный прокецт для нашего бота и добавляем ссылку на пакет `Telegram.Bot` проект:
+Создаем новый консольный проект для нашего бота и добавляем ссылку на пакет `Telegram.Bot` в проект:
 
 ```bash
 dotnet new console
 dotnet add package Telegram.Bot
 ```
 
-The code below fetches Bot information based on its bot token by calling the Bot API [`getMe`] method. Open `Program.cs` and use the following content:
+Код ниже получет от бота информацию на основе токена обращаясь к API бота используя метод [`getMe`]. В Файл `Program.cs` добавим следующее содержимое:
 
-> ⚠️ Replace `YOUR_BOT_TOKEN` with your bot token obtained from [@BotFather].
+> ⚠️ Замените `YOUR_BOT_TOKEN` на токен бота, полученного от [@BotFather].
 
 ```c#
 using Telegram.Bot;
@@ -40,7 +40,7 @@ var me = await bot.GetMe();
 Console.WriteLine($"Hello, World! I am user {me.Id} and my name is {me.FirstName}.");
 ```
 
-Running the program gives you the following output:
+Запускаем программу и получим ответ от бота:
 
 ```bash
 dotnet run
@@ -48,7 +48,7 @@ dotnet run
 Hello, World! I am user 1234567 and my name is Awesome Bot.
 ```
 
-Great! This bot is self-aware. To make the bot react to user messages, head to the [next page].
+Прекрасно! Это бот, который реагирет на себя самого. Чтобы начать отсылать сообщения и реагировать на сообщения пользователя переходим в следующий раздел [next page].
 
 <!-- -->
 
