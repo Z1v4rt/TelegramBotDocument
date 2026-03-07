@@ -2,7 +2,7 @@
 
 ## Bot Father
 
-Before you start, you need to talk to [@BotFather] on Telegram.
+Прежде, чем начать, нужно обратиться к [@BotFather] в Telegram.
 [Create a new bot](https://core.telegram.org/bots/tutorial#obtain-your-bot-token), acquire the bot token and get back here.
 
 [![Bot Father](docs/logo-bot-father.jpg)](https://t.me/botfather)
