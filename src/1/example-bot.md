@@ -33,19 +33,18 @@ async Task OnMessage(Message msg, UpdateType type)
 }
 ```
 
-Run the program:
+Запустим программу:
 
 ```bash
 dotnet run
 ```
 
-It runs waiting for text messages unless forcefully stopped by pressing Enter. Open a private chat with your bot in
-Telegram and send a text message to it. Bot should reply immediately.
+Бот запустится в режиме ожидания сообщения от пользователя, чтобы остановить бот надо нажать Enter. Начните приватный чат с ботом в Telegram и отправьте текстовое сообщение ему.Бот должен ответить немедленно.
 
-By setting `bot.OnMessage`, the bot client starts polling Telegram servers for messages received by the bot.
-This is done automatically in the background, so your program continue to execute and we use `Console.ReadLine()` to keep it running until you press Enter.
+Метод `bot.OnMessage` запускает клиента опроса серверов Telegram для приема новых сообщений от бота.
+Это выполняется автоматичести в фоновом процессе, пока программа продолжает выполнение и метод `Console.ReadLine()` ждет нажатия клавиши Enter.
 
-When user sends a message, the `OnMessage(...)` method gets invoked with the `Message` object passed as an argument (and the type of update).
+Когда пользователь отправляет сообщение , метод `OnMessage(...)` получет вызов объекта `Message` в качестве аргумента (и тип обновления).
 
 We check `Message.Type` and skip the rest if it is not a text message.
 Finally, we send a text message back to the same chat we got the message from.
