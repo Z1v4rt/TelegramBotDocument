@@ -1,7 +1,7 @@
 # Your First Chat Bot
 
-On the [previous page](quickstart.md) we got a secret bot token and used the [`getMe`](https://core.telegram.org/bots/api#getme) method to check our setup.
-Now, it is time to make an _interactive_ bot that gets users' messages and replies to them like in this screenshot:
+В предыдущем разделе [previous page](quickstart.md) мы получили токен бота ,использовали метод [`getMe`](https://core.telegram.org/bots/api#getme) чтобы проверить функциональность нашего бота.
+Настало время сделать бот _интерактивным_, то есть реагирующим на сообщения пользователелй, как на скриншоте:
 
 ![Example Image](docs/shot-example_bot.jpg)
 
