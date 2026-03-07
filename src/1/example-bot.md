@@ -5,9 +5,9 @@
 
 ![Example Image](docs/shot-example_bot.jpg)
 
-Copy the following code to `Program.cs`.
+Скопируем нижний код в файл `Program.cs`.
 
-> ⚠️ Replace `YOUR_BOT_TOKEN` with the bot token obtained from [@BotFather](https://t.me/botfather).
+> ⚠️ Замените `YOUR_BOT_TOKEN` на токен бота, полученного от [@BotFather](https://t.me/botfather).
 
 ```c#
 using Telegram.Bot;
