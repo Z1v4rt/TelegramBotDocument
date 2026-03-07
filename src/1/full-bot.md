@@ -60,11 +60,11 @@ async Task OnUpdate(Update update)
 При клике на кнопку бот принимает тип Обновления в виде **CallbackQuery** чт оне является простым сообщением.  
 Поэтому обработка будет осуществляться через метод `OnUpdate`.
 
-Мы пересылаем callback data _(which could be different from the button text)_,
-and which user clicked on it _(which could be any user if the message was in a group)_
+Мы пересылаем обратный вызов (данные, callback data) _(wкоторые могут отличаться от текста кнопки)_,
+ и какой пользователь ее нажал, так как _(это может быть любой пользователь, если сообщение в группе)_
 
-The `OnError` method handles errors, and you would typically log it to trace problems in your bot.
+Метод `OnError` отражает ошибки и обычно используется для отслеживания ошибок в работе бота.
 
-Look at [the Console example](https://github.com/TelegramBots/Telegram.Bot.Examples/tree/master/Console) in our [Examples repository](https://github.com/TelegramBots/Telegram.Bot.Examples) for an even more complete bot code.
+Пример [the Console example](https://github.com/TelegramBots/Telegram.Bot.Examples/tree/master/Console) в репозитории с примерами [Examples repository](https://github.com/TelegramBots/Telegram.Bot.Examples) есть больше возможных реализаций.
 
 <!-- -->
