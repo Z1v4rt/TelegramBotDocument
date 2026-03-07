@@ -4,7 +4,7 @@
 [![master](https://github.com/TelegramBots/book/actions/workflows/ci.yml/badge.svg)](https://github.com/TelegramBots/book/actions/workflows/ci.yml)
 
 Этот репозиторий содержит документацию для [TelegramBots](https://github.com/TelegramBots) проекта.
-Book is a great tutorial on writing Telegram bots in .NET ecosystem 🤖.
+Эта книга - большой учебник к созданию Telegram ботов в экосистеме .NET 🤖.
 
 ## 🔨 Build & Test ✔
 
