@@ -13,14 +13,15 @@ Bot token это обязательный ключ для бота, которы
 1234567:4TT8bAc8GHUspu3ERYn-KGcvsvGB9u_n4ddy
 ```
 
-## Hello World
+## Первые шаги - Hello World
 
-Now that you have a bot, it's time to bring it to life!
+Теперь есть пбот, пора вдохнуть в него жизнь! 
 
 > [!NOTE]  
-> We recommend a recent .NET version like .NET 8, but we also support older .NET Framework (4.6.1+), .NET Core (2.0+) or .NET (5.0+)
+> Рекомендуется использовать последнюю версию .NET, например .NET 8, но также поддерживаются старые версии .NET Framework (4.6.1+), .NET Core (2.0+) or .NET (5.0+)
 
-Create a new console project for your bot and add a reference to `Telegram.Bot` package:
+Для начала создадим консольный проект.
+Создаем новый консольный прокецт для нашего бота и добавляем ссылку на пакет `Telegram.Bot` проект:
 
 ```bash
 dotnet new console
