@@ -1,10 +1,10 @@
 # Full Example
 
-On the [previous page](example-bot.md) we got a basic bot reacting to messages via `bot.OnMessage`.
+В предыдущем примере [previous page](example-bot.md) мы реализвали простой функционал, используя метод `bot.OnMessage`.
 
-Now, we are going to set also `bot.OnUpdate` and `bot.OnError` to make a more complete bot
+Теперь мы рассмотрим метод `bot.OnUpdate` и `bot.OnError`для расширения возможностей бота.
 
-Modify your `Program.cs` to the following:
+Модифицируем файл `Program.cs` как показано ниже:
 
 ```c#
 using Telegram.Bot;
@@ -51,16 +51,16 @@ async Task OnUpdate(Update update)
 }
 ```
 
-Run the program and send `/start` to the bot.
+Запускаем программу от отправляем боту команду `/start`.
 > [!NOTE]  
-> `/start` is the first message your bot receives automatically when a user interacts in private with the bot for the first time
+> `/start` эта команда является первым сообщением которое принимает бот автоматически при общении с пользователем при первом запуске
 
-The bot will reply with its welcome message and 2 inline buttons for you to choose.
+Бот пришлет приветственное сообщение и две встроенные(_inline_) кнопки для выбора.
 
-When you click on a button, your bot receives an Update of type **CallbackQuery** that is not a simple message.  
-Therefore it will be handled by `OnUpdate` instead.
+При клике на кнопку бот принимает тип Обновления в виде **CallbackQuery** чт оне является простым сообщением.  
+Поэтому обработка будет осуществляться через метод `OnUpdate`.
 
-We handle this by replying the callback data _(which could be different from the button text)_,
+Мы пересылаем callback data _(which could be different from the button text)_,
 and which user clicked on it _(which could be any user if the message was in a group)_
 
 The `OnError` method handles errors, and you would typically log it to trace problems in your bot.
