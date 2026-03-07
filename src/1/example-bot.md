@@ -46,11 +46,11 @@ dotnet run
 
 Когда пользователь отправляет сообщение , метод `OnMessage(...)` получет вызов объекта `Message` в качестве аргумента (и тип обновления).
 
-We check `Message.Type` and skip the rest if it is not a text message.
-Finally, we send a text message back to the same chat we got the message from.
+Мы проверяем тип сообщения `Message.Type` и пропускаем все, что не является текстом.
+В конце пересылается текст принятого сообщения обратно в чат, откуда оно было прислано. 
 
-If you take a look at the console, the program outputs the `chatId` numeric value.  
-In a private chat with you, it would be your `userId`, so remember it as it's useful to send yourself messages.
+В консоли при этом будет выведено числовое значение `chatId`.  
+В личном чате это будет `userId` того, кто отправил это сообщение боту.
 
 ```text
 Received Message 'test' in Private chat with @You (123456789).
