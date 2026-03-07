@@ -3,7 +3,7 @@
 [![book](https://img.shields.io/badge/TelegramBots-Book-blue.svg?style=flat)](https://telegrambots.github.io/book/)
 [![master](https://github.com/TelegramBots/book/actions/workflows/ci.yml/badge.svg)](https://github.com/TelegramBots/book/actions/workflows/ci.yml)
 
-This repository contains documentation for [TelegramBots](https://github.com/TelegramBots) projects.
+Этот репозиторий содержит документацию для [TelegramBots](https://github.com/TelegramBots) проекта.
 Book is a great tutorial on writing Telegram bots in .NET ecosystem 🤖.
 
 ## 🔨 Build & Test ✔
