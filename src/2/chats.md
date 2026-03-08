@@ -21,45 +21,45 @@
 
 Все способы общения с чатами All _(например, отправлять сообщения и так далее)_ имеют параметр `ChatId`.
 
-Для этого параметра можно сразу передать число типа `long` _(идентификатор ата или пользователя)_,
+Для этого параметра можно сразу передать число типа `long` _(идентификатор чата или пользователя)_,
 или при отправке в публичную группу/канал можно передать строку `"@chatname"`.
 
 ### Получение полной информации о чате (`GetChat`)
 
-Once a bot has joined a group/channel or has started receiving messages from a user, it can use method `GetChat` to get detailed info about that chat/user.
+Когда бот присоединяется к группе или каналу и начинает принимать сообщения от пользователей, он использует метод `GetChat`, чтобы получить детали о чате или ьпользователе.
 
-There are lots of information returned depending on the type of chat, and most are optional and may be unavailable.  
-Here are a few interesting ones:
-* For private chat with a User:
-	- Birthdate
-	- Personal channel
-	- [Business](../4/business.md) information
-	- Bio
-* For groups/channels:
-	- Description
-	- default Permissions _(non-administrator access rights)_
-	- Linked ChatId _(the associated channel/discussion group for this chat)_
-	- IsForum _(This chat group has [topics](#forum--topics))_
-* Common information for all chats:
-	- Photo _(use `GetInfoAndDownloadFile` and the `photo.BigFileId` to download it)_
-	- Active Usernames _(premium user & public chats can have multiple usernames)_
-	- Available reactions in this chat
-	- Pinned Message _(the most recent one)_
+В зависимости от типа чата возвращается много информации, и большинство из возвращаемых данных необязательны и могут быть недоступны. 
+Вот несколько интересных примеров:
+* Для личниых(приватных) чатов с пользователем:
+	- Дата рождения
+	- персональный канал
+	- [бизнес](../4/business.md) инфо
+	- биоометрия
+* Для групп/каналов:
+	- Описание
+	- права доступа по умолчанию _(не административные права)_
+	- присоединенный чат (обсуждение), его идентификатор ChatId
+	- параметр IsForum _(означает что в чате есть форум (обсуждение) [темы](#forum--topics))_
+* Основная информация для всех типов чатов:
+	- Фотоo _(использует `GetInfoAndDownloadFile` и `photo.BigFileId` чтобы загрузить)_
+	- Активные пользователи _(премиум-чаты пользователей и публичные могут иметь несколько имён пользователей)_
+	- Доступные реакции для этого чата
+	- Прикрепленные сообщения _(обычно самые последние)_
 
 
-## Receiving chat messages
+## Прием сообщений чата
 
-See chapter [Getting Updates](../3/updates) for how to receive updates & messages.
+см. главу [полчение обновлений](../3/updates) о том, как получать обновления сообщений.
 
-For groups or private chats, you would receive an update of type `UpdateType.Message` (which means only the field `update.Message` will be set)
+Для групп и приватных чатов, принимаются обновления типа `UpdateType.Message` (имеется ввиду, что только поле `update.Message` будеть иметь значение)
 
-For channel messages, you would receive an update with field `update.ChannelPost`.
+Для каналов принимаются обновления с заполненным полем `update.ChannelPost`.
 
-For [business](../4/business) messages, you would receive an update with field `update.BusinessMessage`.
+Для [бизнес](../4/business) сообщений, принимаются обновления с заполненным полем `update.BusinessMessage`.
 
-If someone modifies an existing message, you would receive an update with one of the fields `update.Edited*`
+Если изменятеся уже доставленное сообщение (редактируется), принимается обновление с заполненным полем `update.Edited*`
 
-Note: if you use the `bot.OnMessage` event, this is simplified and you can just check the UpdateType argument.
+заметка: если используется метод(событие) `bot.OnMessage`, можно просто проверить аргумент UpdateType.
 
 > [!IMPORTANT]  
 > By default, for privacy reasons, bots in groups receive only messages that are targeted at them (reply to their messages, inline messages, or targeted `/commands@botname` with the bot username suffix)  
