@@ -63,50 +63,50 @@
 
 > [!IMPORTANT]  
 > По умолчанию, из соображений конфиденциальности, бот в группе принимает сообщения только нацеленные на него самого (адресованные боту, пересылаемые ему сообщения, вложенные сообащения  или нацеленные `/commands@botname` с именем пользотвалея бота в качестве суффикса)  
-> Если нужно принимать все сообщения в группе, необходимо назначить административные права, или <u>disable</u> в (настройках бота) **Bot Settings** : [**Group Privacy** режим](https://core.telegram.org/bots/features#privacy-mode) в [@BotFather](https://t.me/botfather)
+> Если нужно принимать все сообщения в группе, необходимо назначить административные права, или установить значение <u>disable</u> в **Bot Settings** : [**Group Privacy** режим](https://core.telegram.org/bots/features#privacy-mode) в [@BotFather](https://t.me/botfather)
 
-## Migration to Supergroup
+## Миграция в Супергруппу
 
-When you create a private chat group in Telegram, it is usually a `ChatType.Group`.
+Когда создается приватная группа в Telegram, то это обычно тип чата `ChatType.Group`.
 
-If members count reach 200, or if you change some settings _(like making it public, enabling newcomers history, or custom admin rights)_,
-the group may be migrated into a **supergroup**.
+Если количество учасников чата превышает 200, или если изменяются некоторые настройки _(например, сделать её публичной, открыть историю сообщения для новичков или использовать пользовательские права администратора)_,
+группа может мигрировать в **Супергруппу**.
 
-In such case, the Supergroup is like a separate chat with a different ID. 
-The old Group will have a service message `MigrateToChatId` with the new supergroup ID.
-The new Supergroup will have a service message `MigrateFromChatId` with the old group ID.
+В таком случае Супергруппа — это отдельный чат с другим ID. 
+Старая группа будет иметь сервисное сообщение `MigrateToChatId` указывающее на новый ID Супергруппы.
+Новая Супергруппа будет иметь сервисное сообщение `MigrateFromChatId` указывающее на ID старой группы.
 
-## Managing new members in a group
+## Управление новыми участниками в группе
 
-Bots can't directly add members into a group/channel.  
-To invite users to join a group/channel, you can send to the users the public link `https://t.me/chatusername` (if chat has a username), or invite links:
+Боты не могут напрямую добавлять участников группы или каналы.  
+Для приглашения пользователя присоединиться к группе или каналу  можно отправить публичную ссылку-приглашение в виде `https://t.me/chatusername` (если чат имеет поле username), или пригластельную ссылку:
 
-### Invite links
+### Пригласительная ссылка (ссылка - приглашение)
 
-Invite links are typically of the form `https://t.me/+AAS0mE-tH1nG` and allow users clicking on them to join the chat.
+Ссылка - приглашение обычно имеет вид `https://t.me/+AAS0mE-tH1nG` и доступна пользователям, кому она была отправлена для присоединения к группе или каналу. 
 
-You can send those links as a text message or as an `InlineKeyboardButton.WithUrl(...)`.
+Ссылку можно отправить в текстовом сообщени используя метод `InlineKeyboardButton.WithUrl(...)`.
 
-If your bot is administrator on a private (or public) group/channel, it can:
-- read the (fixed) primary link of the chat:
+Если бот имеет права администратора в личных (приватных, или публичных) группах/каналах то он может:
+- читать (фиксировать) основную ссылку чата:
 ```csharp
 var chatFullInfo = await bot.GetChat(chatId); // you should call this only once
 Console.WriteLine(chatFullInfo.InviteLink);
 ```
-- create new invite links on demand
+- создавать новую ссылку-приглашение 
 ```csharp
 var link = await bot.CreateChatInviteLink(chatId, "name/reason", ...);
 Console.WriteLine(link.InviteLink);
 ```
 
-See also [some other methods for managing invite links](https://core.telegram.org/bots/api#exportchatinvitelink).
+еще тут [некоторые другие методы управления ссылками на приглашения](https://core.telegram.org/bots/api#exportchatinvitelink).
 
-### Detecting new group members and changed member status
+### Обнаружение новых членов группы и изменения статуса члена
 
-The simpler approach to detecting new members joining a group is to handle service messages of type `MessageType.NewChatMembers`: the field `message.NewChatMembers` will contain an array of the new User details.  
-Same for a user leaving the chat, with the `message.LeftChatMember` service message.
+Простой подход к обнаружению новых присоединившихся к группе пользователей заключается в обработке события `MessageType.NewChatMembers`: в поле  `message.NewChatMembers` которе содержит массив деталей о новых пользователях.  
+Для пользователей, покинувших чат устанавливается сервисное сообщение `message.LeftChatMember`.
 
-However, under various circumstances (bigger groups, hidden member lists, etc..), these service messages may not be sent out.  
+Однако при различных обстоятельствах (большие группы, скрытые списки участников и т.д.), эти сервисные сообщения не могут быть отправлены.  
 
 The more complex (and more reliable) approach is instead to handle updates of type `UpdateType.ChatMember`:
 
