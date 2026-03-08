@@ -1,30 +1,30 @@
-# Dealing with chats
+# Взаимодействие с чатами
 
-All messages in Telegram are sent/received on a specific chat.  
-The `chat.Type` can be one of 4 types:
+Все сообщения в Telegram отправляются и принимаются в спецефичных типах чатов.  
+Тип `chat.Type` может быть четырех типов:
 
 - `ChatType.Private`:  
-  A private discussion with a user. The `chat.Id` is the same as the `user.Id` (positive number)
+  Приватня беседа с пользователем. Идентификатор `chat.Id` то же самое, что и `user.Id` (положительное число)
 - `ChatType.Group`:  
-  A private chat group with less than 200 users
+  Приватная чат - группа с количеством пользователей до 200
 - `ChatType.Supergroup`:  
-  An advanced chat group, capable of being public, supporting more than 200 users, with specific user/admin rights
+  Продвинутая чат-группа, способная быть публичной, поддерживающая более 200 пользователей с определёнными правами пользователей/администраторов
 - `ChatType.Channel`:  
-  A broadcast type of publishing feed (only admins can write to it)
+  Трансляционная лента для публикации (канал, только администраторы могут писать в неё)
 
-Additional notes:
-- For groups/channels, the `chat.Id` is a negative number, and the `chat.Title` will be filled.
-- For <u>public</u> groups/channels, the `chat.Username` will be filled.
-- For private chat with a user, the `chat.FirstName` will be filled, and optionally, the `chat.LastName` and `chat.Username` if the user has one.
+Дополнительные заметки:
+- для групп/каналов, параметр `chat.Id` является отрицательным числом, и параметр `chat.Title` будет заполнен.
+- Для  <u>public</u> (публичных) групп/каналов параметр `chat.Username` будет заполнен.
+- Для приватных (личных) чатов с пользователем, параметр `chat.FirstName` будет заполнен, и, опционально, `chat.LastName` и `chat.Username` если имеются, то тоже будут заполнены.
 
-## Calling chat methods
+## Вызов метода
 
-All methods for dealing with chats _(like sending messages, etc..)_ take a `ChatId` parameter.
+Все способы общения с чатами All _(например, отправлять сообщения и так далее)_ имеют параметр `ChatId`.
 
-For this parameter, you can pass directly a	`long` _(the chat or user ID)_,
-or when sending to a public group/channel, you can pass a `"@chatname"` string
+Для этого параметра можно сразу передать число типа `long` _(идентификатор ата или пользователя)_,
+или при отправке в публичную группу/канал можно передать строку `"@chatname"`.
 
-### Getting full info about a chat (`GetChat`)
+### Получение полной информации о чате (`GetChat`)
 
 Once a bot has joined a group/channel or has started receiving messages from a user, it can use method `GetChat` to get detailed info about that chat/user.
 
