@@ -19,7 +19,7 @@
 
 ## Вызов метода
 
-Все способы общения с чатами All _(например, отправлять сообщения и так далее)_ имеют параметр `ChatId`.
+Все способы общения с чатами _(например, отправлять сообщения и так далее)_ имеют параметр `ChatId`.
 
 Для этого параметра можно сразу передать число типа `long` _(идентификатор чата или пользователя)_,
 или при отправке в публичную группу/канал можно передать строку `"@chatname"`.
@@ -41,7 +41,7 @@
 	- присоединенный чат (обсуждение), его идентификатор ChatId
 	- параметр IsForum _(означает что в чате есть форум (обсуждение) [темы](#forum--topics))_
 * Основная информация для всех типов чатов:
-	- Фотоo _(использует `GetInfoAndDownloadFile` и `photo.BigFileId` чтобы загрузить)_
+	- Фото _(использует `GetInfoAndDownloadFile` и `photo.BigFileId` чтобы загрузить)_
 	- Активные пользователи _(премиум-чаты пользователей и публичные могут иметь несколько имён пользователей)_
 	- Доступные реакции для этого чата
 	- Прикрепленные сообщения _(обычно самые последние)_
@@ -62,8 +62,8 @@
 заметка: если используется метод(событие) `bot.OnMessage`, можно просто проверить аргумент UpdateType.
 
 > [!IMPORTANT]  
-> By default, for privacy reasons, bots in groups receive only messages that are targeted at them (reply to their messages, inline messages, or targeted `/commands@botname` with the bot username suffix)  
-> If you want your bot to receive ALL messages in the group, you can either make it admin, or <u>disable</u> the **Bot Settings** : [**Group Privacy** mode](https://core.telegram.org/bots/features#privacy-mode) in [@BotFather](https://t.me/botfather)
+> По умолчанию, из соображений конфиденциальности, бот в группе принимает сообщения только нацеленные на него самого (адресованные боту, пересылаемые ему сообщения, вложенные сообащения  или нацеленные `/commands@botname` с именем пользотвалея бота в качестве суффикса)  
+> Если нужно принимать все сообщения в группе, необходимо назначить административные права, или <u>disable</u> в (настройках бота) **Bot Settings** : [**Group Privacy** режим](https://core.telegram.org/bots/features#privacy-mode) в [@BotFather](https://t.me/botfather)
 
 ## Migration to Supergroup
 
